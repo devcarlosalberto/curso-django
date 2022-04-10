@@ -31,4 +31,4 @@ class Recipe(models.Model):
     )
 
     def __str__(self):
-        return f'{self.title}, criado por: {self.author}'
+        return f'{self.title} - autor: {self.author}'
