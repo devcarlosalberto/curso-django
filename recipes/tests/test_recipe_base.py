@@ -4,12 +4,14 @@ from recipes.models import Category, Recipe
 
 
 class RecipeTestBase(TestCase):
+
     def setUp(self) -> None:
-        self.make_recipe()
         return super().setUp()
+
 
     def make_category(self, name='Category'):
         return Category.objects.create(name=name)
+
 
     def make_author(
         self,
@@ -27,11 +29,12 @@ class RecipeTestBase(TestCase):
             email=email
         )
 
+
     def make_recipe(
         self,
         category_data=None,
         author_data=None,
-        title='Recipe Title',
+        title='This is a category test',
         description='Recipe Description',
         slug='recipe-slug',
         preparation_time=10,
@@ -65,7 +68,3 @@ class RecipeTestBase(TestCase):
             is_publish=is_publish,
             cover=cover
         )
-    
-    def delete_recipes(self):
-        Category.objects.get(id=1).delete()
-        Recipe.objects.get(id=1).delete()
